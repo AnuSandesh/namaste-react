@@ -1,0 +1,18 @@
+# What is tree shaking ?
+
+Tree shaking is a terminology in which it is not going to load all the code which is not required.
+Only required is going to load all other are skipped.
+
+# What is hot module replacement or HMR ?
+
+When application is running and we modified some code and save it.
+changes will automatically get reflected into the running application.
+Which is called as hot module replacement.
+
+# What is gitignore ?
+
+it contains list of files and direactories that we don't want to commit into the repository
+
+# Why should we not modify package.lock.json ?
+
+It is transitive dependency and installed packages are dependent on this hence it should not modify.

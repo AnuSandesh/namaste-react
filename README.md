@@ -20,3 +20,7 @@
 - Tree shaking algorithm (Remove unused code for you)
 - Different build for dev and prod bundles
 - Prod build : npx parcel build index.html
+
+# Notes
+
+- Episode by Episode notes are available in the notes package

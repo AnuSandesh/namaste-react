@@ -1,0 +1,23 @@
+# What is Emmet ?
+
+Emmet is a powerful and time-saving toolkit for web developers and designers that enhances HTML and CSS workflow. It allows you to write HTML and CSS code using simple and shorthand syntax, which is then expanded into full, proper code. Emmet is particularly popular among developers who work with HTML and CSS extensively, as it can significantly speed up the coding process.
+
+For example, with Emmet, you can write:
+
+```
+ul>li*3>a[href="#"]
+```
+
+And when you expand it using the appropriate shortcut (usually Tab or Enter), it will generate:
+
+```
+<ul>
+  <li><a href="#"></a></li>
+  <li><a href="#"></a></li>
+  <li><a href="#"></a></li>
+</ul>
+```
+
+Emmet works not only with HTML but also with CSS. It can generate complex structures.
+
+In essence, Emmet helps developers write code more efficiently by reducing the amount of repetitive typing and allowing them to express complex structures and patterns using concise shorthand. It's supported by various code editors and integrated development environments (IDEs) like Visual Studio Code, Sublime Text, and others.

@@ -1,0 +1,170 @@
+## Ignite Our App
+
+If we want to make our application ready to go to the production then we need to do lot of things like below.
+
+- Bundling
+- Code Spliting
+- Chunking
+- Image optimization
+- minifide code
+- compress the code
+
+Before going to production we need to do all this stuff to take care
+
+If we are following all the above points then it will fire the application in production.
+
+# How we can create production readuy application ?
+
+There are many packages that helps to make fast development in our application.
+To include that we use NPM.
+
+## What is NPM ?
+
+It is everything except node package manager.
+It does not have full form.
+It manages packages but does not stands for node package manager.
+
+Go to npmjs.com and click on <3 icon it gives you the names.
+Npm is standard pakcage manager repository.
+
+# How to add npm in our project ?
+
+go to the code folder open terminal and run below command
+npm init
+it will ask some questions
+package-name
+version
+description
+entry point (App.js)
+test command : jest
+repository
+author
+license
+
+It will going to create a file named as package.json which is a configuration of npm.
+
+Now we are going to include the package that is makes our application for ready to production.
+Most important package in our project. # Parcel
+
+Bundler : bundler basically bundle our project. and package organization that creates application to use in production.
+
+When we create react app using command like create react app then it will use behind the seen is webpack bundler.
+
+Parcel : it is a package available in npm that will going to ingnite our app give strength to our application.
+
+So we are going to include parcel as a dependency in our project/application for that below command will work.
+Open terminal > go to application directory > write below command and enter
+npm install parcel (normal dependency)
+or
+npm install -D parcel (it will going to install development version of the package)
+
+every dependency that is included has two version of it.
+
+1. Normal
+2. Dev dependency (It is generally required while development)
+
+Once we run the command it will going to add the dependency into the pakcage.json which is a configuration file of npm.
+It keeps a track of versions installed to our application.
+
+open package.json file and serach you will find the dependency over ther along with version of the dependency.
+
+devDependencies : {
+parcel:"^2.9.3"
+}
+
+Whenever we include dependency we found that the version will be suffix with ^ or ~ what is the means of that ?
+
+Caret ^ -> if we added caret with the version it iwll automatically upgrade the dependency with minor version also.
+Tilde ~ -> If we added as tilde then it will upgrade with the major versions only to the application.
+
+When you install any package it will going to add package.lock.json file.
+It is configuration that is fixed for the dependency that we have added into our application.
+
+# Difference b/w package.json and package.lock.json
+
+package.lock.json
+It keeps a record of every dependency that we have installed with exact version of dependency which is installed.
+
+Package.json -> approximatly version
+package.lock.json -> exact version details
+
+if you see package.lock.json you will find the details of parcel.
+
+"parcel" : {
+"version":"2.9.3",
+"resolved":"url",
+"integrity":"sha512-hashcode",
+"dev": true
+}
+etc dependency are added in the json file.
+
+# It is working on my machine why it is not working on production ?
+
+integrety : will take care of all this. whatever the hashcode we have into local same should be going to install in produciton it is taking care by the integrrity sha key.
+
+when we install any dependency it will create folder which is named as node_modules.
+It contains all the code of parcel and put into node_module
+
+Question: Why there are other modules available in node_module folder ?
+Answer : We have included dependency of parcel in application, in that case parcel has it's own dependencies in it so that also need to be included into that module.
+That is called as transitive dependency.
+
+Question: In that case how many package.lock.json we have in our project ?
+There are many package.json that are available into the node_modules and also we have our applications dependency.
+
+node_module : It is a collection of dependencies.
+
+Now if you see the size of node_module it is huge in terms of size.
+we are not going to commit this to the repo because we can easily regenerate it anytime by using simple command npm install.
+
+Now create a .gitignore file and add below lines so that it will ignore those folder to commit.
+./node_module
+./parcel-cache
+./dist
+
+# Building our app using parcel
+
+npx parcel index.html
+
+parcel will create a server for us and application is running in localhost:1234
+
+npx -> means execute packages
+
+# Now we are going to remove the CDN links to include react becasuse it is not good way to include React in our project.
+
+It is constly operation to making network call.
+And if there is any update then we need to keep changing the urls with every update.
+
+we are going to include that dependency into our application using below command.
+npm install react
+npm install react-dom
+
+When we run build command for parcel it will going to create dist folder and parcel-cache folder.
+dist folder contains the build files which is converted and compressed into one file of js that contains whole application functionality.
+
+production build command
+npm parcel build index.html
+
+It will throw an error because at the time of npm init we have provded App.js as our main class.
+Remove this from package.json it will work.
+
+If we are building the production command we need to specify the supported browswer details.
+go to package.json
+search browserList
+
+"browserList" : [
+"last 2 versions"
+]
+
+above code will consider all the browser that has last 2 latest version.
+
+Now this is the application that we got created by writing just
+npm create react-app
+
+## Git
+
+All the code are commited into the personal github repo
+Repository
+https://github.com/AnuSandesh/namaste-react
+Episode 02
+https://github.com/AnuSandesh/namaste-react/compare/b38cba2dda05c7b4d95b63a3d9d95103b81f05c1...6307b1950508a11be780486d85d70fce88356f74

@@ -1,0 +1,177 @@
+## Episode 03
+
+Build the project with below command
+npx parcel index.html
+
+Now whenever we want to create a build we need to write above command to get rid of this writing it again and agian we can add this commands into the scripts.
+Why this is needed for example we want to create build for dev environment there are some commands that is specific to production and dev command is different so instead of writing that command every time we just need to add this into the scripts so that we can use them easily.
+
+Let's write scripts
+Open package.json file > search for scritps > add below commands into that
+
+"scripts":{
+"start": "parcel index.html",
+"test": "jest",
+"build": "parcel build index.html"
+}
+
+now just write below command to execute the script.
+as we know that package.json is a configuration of npm so command should be start from npm only.
+
+npm run start > it will call parcel index.html
+npm run build > it will call parcel build index.html
+
+npm start also works because start keyword is reserved by npm
+
+# How do we create react element now as we included dependency of react using npm ?
+
+ReactElement > React element are the elements which are equivalent to DOM elements.
+ReactElement is not html element.
+It is basically an Object, if we print it using console.log you will get to know that this is going to print an object.
+When we render this object to any DOM object then it will become a html.
+
+React.createElement -> It will create an object
+root.render(header) -> react library convert this object into html and render it into the root.
+
+React.createElement -> it is not a good way to create and element in react.
+Whenever we have a big application it is not easy to maintain if we are using React.createElement for every component.
+
+To resolve this concern they created JSX so that it is easy to maintain the code.
+
+Please keep a note JSX is different and React is different
+JSX made developer life easy but it is not a part of React.
+
+JSX is convention where we can merge html with java script code.
+JSX is not html writing in javascript.
+JSX has html like syntex but it is not html.
+It looks like html or xml but it is not html or ml inside javascript.
+JSX is different.
+
+Create heading in jsx.
+
+const jsxHeading = <h1 id="heading">
+Hello World...!!
+
+</h1>
+
+if we print
+console.log(heading)
+console.log(jsxHeading)
+
+Both are similar in structure.
+
+Is JS engine will understand the JSX ?
+No
+JS engine not understand JSX. JS engine only understand ECMA script which is also known as ES6.
+
+Then how this is working ?
+If JS engine is not able to read the code written in JSX then where it is converting to make it readable to js engine ?
+Answer : this code is transpiled before reaching to the JS engine.
+It's job of Babel to do such stuff for us.
+When we include parcel it is automatically add the dependency of Babel.
+Babel is use to transpiled the code of jsx into react element and react element will creat a JS object and then JS object render it in the form of html.
+
+How JSX works ?
+JSX element internally converted the code into ReactElement. ReactElement create JS object for ReactElement. And when it is going to render JS object converted into html.
+
+Babel job is to convert jsx code into react element.
+
+Babel is JS compiler.
+
+For more information you can visit the documentation of Babeljs.io
+Babel can do
+
+- Transpile the code
+- JS compiler
+- It also transpiles the code as per the browser settings like if we want our application can run on older browser it makes that possible to transpiledd the code into the supported broswer formate.
+- Abstract syntex key and parsing it.
+
+html has class as attribute where as JSX has className as attribute.
+html has non camelCase attributes where as JSX has camelcase attributes.
+
+you can also search for image tag in jsx
+anchor tag in jsx.
+
+Best way to write jsx if it is in single line.
+
+If it is in multiline then it should be written in ().
+
+Extentions that you can install in VS code.
+
+- Prettier ESLint
+- Prettier code formatter
+- Bracket Pair colorizer
+- EsLint
+- Better Comments
+
+# React Component
+
+Everything in react is a component.
+
+Type of component
+
+- Class based component (No one uses this, not recomanded)
+- Functional based component (recomanded and used now a days)
+
+React Functional Component : It is just a javascript function.
+Every component must be start from Capital letters.
+
+const Heading = () => {
+return <h1> Namaste React Functional Componenet</h1>
+};
+
+A function which is returning JSX is called functional component.
+
+Also can be written as
+HeadingComponent =() => <h1> Namaste React </h1>
+
+const HeadingComponent = ()=> <h1> Namaste rec=act from functional component</h1>
+
+how to render this componenet into the root is
+root.render(<HeaderComponent />)
+
+What is component composition ?
+When a component inside another component is called componenet composition.
+
+const HeadingComponent = () => {
+
+<div id="container">
+<Title />
+<h1> Heading tag</h1>
+</div>
+}
+
+It can also written in function
+
+cosnt HeadingComponent = function () {
+return (
+
+<h1> Heading </h1>
+)
+};
+
+If we want to insert any javascript value inside jsx component then it should be written in currly parenthasis.
+for example
+cosnt number = 1000;
+Now we are using this number to display into the heading.
+
+<h2>{number}</h2>
+
+Example
+
+const Title = {
+
+<h1> React title in react component</h1>
+}
+
+cosnt HeadingComponent = () => {
+
+<div id="container">
+{Title} OR {Title();} OR <Title />
+</div>
+}
+
+Why it is working in currly brasis as a component ?
+As you know we can write any java script code to execute in jsx inside {}
+And ReactComponent is nothing but the JS object.
+So in this case if we write any of the changes into the currely brasis it is treated as js and when it is calling to title then it will return an html component and that is going to render into the place where we have added.

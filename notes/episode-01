@@ -1,0 +1,328 @@
+Requirements
+
+- Google Chrome (Latest version)
+- VS code editor
+
+Create an empty folder and open it into the VS Code Editor
+
+# Question : Write a basic hello world program into HTML ?
+
+Answer : VS code internally using emmet to generate the sample code.
+For example : Type below code in VS code and enter it will generate the code automatically in the editor.
+html:5
+VS code is most powerfull editor for FE application.
+
+---
+
+## Hello World Program
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namaste React</title>
+</head>
+<body>
+  <div id="root">
+    <h1> Hello World of React..!!</h1>
+  </div>
+</body>
+</html>
+
+Now use _JS_ to build this above code
+Just replace the body and it will work
+
+<body>
+    <div id = "root">
+        <script>
+            const heading = document.createElement("h1");
+            heading.innerHTML = "Hello World of React by JS";
+        </script>
+    </div>
+</body>
+
+Above code is just created a script that create a heading tag and having the statement inside it.
+Now the task is to add this heading into the root element to show the value to the browser.
+For that we are using the existing function that is available in the JS.
+getElementById => Which search the element
+appendChild => add child element to the element
+Below code will work
+
+<body>
+    <div id = "root">
+        <script>
+            const heading = document.createElement("h1");
+            heading.innerHTML = "Hello World of React by JS";
+            const root = document.getElementById("root");
+            root.appendChild(heading);
+        </script>
+    </div>
+</body>
+
+How this program runs on browser?
+Answer is browser has JS engine in it.
+Browser does not understand the React, it just understand the JS.
+
+Now How to write same program in _React_
+To write the program into React first we need to pull React in our system.
+Go to CDN (Content Delivery Network) react. It is a website where react has been hosted. We can pull the react from there to our system.
+
+Just copy the script tag that is given in the CDN and paste it in your project to pull the react library in your system.
+This is the one way to ineject React into the project.
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+Now your code looks like below code.
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Namaste React</title>
+  </head>
+  <body>
+    <div id="root">
+      <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World from JS..!!";
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+      </script>
+      <script
+        crossorigin
+        src="https://unpkg.com/react@18/umd/react.development.js"
+      ></script>
+      <script
+        crossorigin
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      ></script>
+    </div>
+  </body>
+</html>
+
+# Be curious about very small things that you write just go and check what us available in the provided script tag and URL.
+
+What is the _crossorigin_ in the script tag ?
+Answer
+Cross origin is an attribute in script tag that use when the JS is loading from different domain.
+This attribute is part of cross origin resource sharing (CORS).
+This is use by browser for security purpose.
+By setting up this attribute browser knows that this script should be loaded by cross-origin request and need to load securly and also helps in security check.
+
+What is _CDN_ ?
+Answer
+CDN full form is content delivery network.
+It is a network infrastructure that used to deliver content to user in faster manner.
+The main aim of CDN is to store content in cache to the nearest server so that user can easily access it or use it.
+Some important key feature of CDN.
+
+1. Content Caching - CDN server distributed over worldwide.
+   Whenever any user visit to the website cdn server store this website into the cache so that it will reduce the loading time.
+
+2. Reduce Latency - User access location to the nearest geographical location.
+3. Load balancing
+4. Security
+5. Content optimization
+
+# What is React ?
+
+React is a java script library.
+Note : It is not a fremwork, it is just a library which is created by facebook currently known as meta.
+
+# Why there are 2 scripts that need to include while developing the react application ?
+
+There are 2 libraries that is written.
+
+- Core react library
+- Dom operations or to modify dom changes
+
+React works on multiple platforms like mobile phones tablet etc. (React Native, React 3D)
+So for core concept they made the core library and for every react application.
+
+react.development.js => core library
+react.dom.development.js => it is a bridge to connect to the dom
+
+# Hello World using react ?
+
+<script>
+    const heading = React.createElement("h1", {}, "Hello World");
+</script>
+
+React.createElement() = it accepts 3 arguments
+
+1. tag => html tag that we want to create
+2. Object => any properties to the tag attribute that we need to pass as object
+3. Children => what we have to put into the tag for example "hello world"
+
+Note: creating of an element is comes under the core library hence we have used first library's Object.
+
+Creating a root element is the job of ReactDOM.
+const root = ReactDOM.createRoot(document.getElementById("root"));
+Add root element
+
+<script>
+    const heading = React.createElement("h1", {}, "Hello World");
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+</script>
+
+Now we need to add the heading into the root element to display into the browser for that we need to render it.
+root.render(heading);
+
+<script>
+    const heading = React.createElement("h1", {}, "Hello World");
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(heading);
+</script>
+
+so the overall code look like below
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Namaste React</title>
+  </head>
+  <body>
+    <div id="root">
+      <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World from JS..!!";
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+      </script>
+      <script
+        crossorigin
+        src="https://unpkg.com/react@18/umd/react.development.js"
+      ></script>
+      <script
+        crossorigin
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      ></script>
+      <script>
+        const heading = React.createElement("h1", {}, "Hello World");
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(heading);
+      </script>
+    </div>
+  </body>
+</html>
+
+Now this code dosn't look good let's rearrange it.
+
+create a file name as App.js
+move the script code into this
+
+---
+
+# App.js
+
+const heading = React.createElement(
+"h1",
+{ id: "heading" },
+"Hello World from React..!!"
+);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
+
+# index.css
+
+#heading{
+color : red
+}
+
+Try to log the heading into console and see what it is printing.
+console.log(heading)
+
+It will going to print and javascript object
+
+React.createElement => It is just generating JS object
+
+include this into index.html
+the code will look like below code
+
+# index.html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Namaste React</title>
+  </head>
+  <body>
+    <div id="root">
+      <script
+        crossorigin
+        src="https://unpkg.com/react@18/umd/react.development.js"
+      ></script>
+      <script
+        crossorigin
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      ></script>
+      <script src="./App.js"></script>
+    </div>
+  </body>
+</html>
+
+# How to create nested element ?
+
+const parent = React.createElement("div"
+{id: "parent"},
+React.createElement("div",
+{id: "child"},
+React.createElement("h1",
+{},
+"I am h1 tag"))
+);
+
+by this way we can create the nested elements
+
+# How to create siblings ?
+
+Siblings means on same root multiple elements are present
+
+You can either pass single children or you can pass an array of children as a thirf argument.
+It will throw a warning each child in a list should have unique key (will discuss this later)
+
+const parent = React.createElement(
+"div",
+{id:"parent"},
+React.createElement(
+"div",
+{id:"child"},
+[
+React.createElement("h1", {}, "heading1");
+React.createElement("h1", {}, "heading2");
+React.createElement("h1", {}, "heading3");
+React.createElement("h1", {}, "heading4");
+]
+));
+
+When we write code like this into the production ready application it is very tough to maintain and also not readable to the new person.
+To resolve this we are using the JSX.
+
+# Will the order of script loading is Matters ?
+
+Yes, it matters.
+If we change order of reactDom an react core library after App.js it throws error because App.js has dependency on both the library.
+And in javascript code is executed line by line and when App.js is executing at that time both library is not included into the project.
+hence it breaks so it is necessary to maintain order of including dependencies.
+
+React can be apply on any small protion of the html page.
+that's why it is a libray.
+If it is a framework then will have to follow the structure of that design.
+
+## Git
+
+All the code are commited into the personal github repo
+Repository
+https://github.com/AnuSandesh/namaste-react
+Episode 1
+https://github.com/AnuSandesh/namaste-react/compare/cb16710b1bdbeb14c78e2af0a77d914413187dd8...b38cba2dda05c7b4d95b63a3d9d95103b81f05c1

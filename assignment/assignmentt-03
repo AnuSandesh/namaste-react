@@ -1,0 +1,4 @@
+# What is type attribute in script tag ?
+
+type Attribute is used to specify the MIME type of script and identify the content of the Tag.
+default value of type is text/javascript
