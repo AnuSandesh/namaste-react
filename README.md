@@ -24,3 +24,20 @@
 # Notes
 
 - Episode by Episode notes are available in the notes package
+
+
+# Food Ordering App
+/**
+ * - Header
+ *   - Logo
+ *   - Navigation Items
+ * - Body
+ *   - Search Component
+ *   - Restrurant Components
+ *     - Card Component
+ * - Footer
+ *  - Copyright
+ *  - Links
+ *  - Address
+ *  - Contract
+ */

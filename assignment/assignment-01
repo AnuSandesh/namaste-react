@@ -21,3 +21,9 @@ And when you expand it using the appropriate shortcut (usually Tab or Enter), it
 Emmet works not only with HTML but also with CSS. It can generate complex structures.
 
 In essence, Emmet helps developers write code more efficiently by reducing the amount of repetitive typing and allowing them to express complex structures and patterns using concise shorthand. It's supported by various code editors and integrated development environments (IDEs) like Visual Studio Code, Sublime Text, and others.
+
+# Differnce between library and framework ?
+
+Library is just a collection of code that create a life easy and can be included any where that means can be included in small amount of code instad of sturcture whole project
+
+Whereas framework is require a strucutre and desing to write a code in a manner that it is expected to be.
