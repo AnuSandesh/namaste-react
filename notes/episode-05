@@ -1,0 +1,79 @@
+Restructure code:
+Make precise folder structure
+Moved App.js code into separte codes.
+
+Every component must have the new js file and name starts for component should be in Capital Latter.
+There is blog available in react website for FileStructure do read that.
+
+Never keep hardcoded data in components
+Created a common/util/config folder to maintain that.
+
+When we separte the components it must be exported then only we able to use in other components.
+Two ways to export the components.
+-> default export
+-> named export
+
+default export can only have one for single component.
+named export can be many
+
+React Hook
+Use case : When any data change then Ui should be automatically updated.
+What is react hook?
+It is a normal utility function of JS.
+
+There are many hooks provided by react.
+Two mainly used the most is.
+-> useState
+-> useEffect
+
+useState()
+it gives the powerfull react variable that has power of react.
+
+to use use state we need to import it like below
+import {useState} from "react"
+
+this is an example of named export
+
+useState is used to create state variable
+useState is used to maintain the state of component.
+
+writing way of useState
+
+const [ variable, setVariable ] = useState(<Initial value of variable>);
+
+this is an example of array destructre
+it is as similar as like code given below
+
+const arr = useState(initialState);
+const[list, setList] = arr;
+
+OR
+
+const arr = useState(initialState);
+const list = arr[0]
+const setList = arr[1]
+
+this variable is behave like normal variable.
+
+we are not allowed to update the variable directly for that we have one methond that we destructured from useState we will use only that to update the value then only it works otherwise it will not work.
+
+whenever any state of the variable is changed react re-render the component.
+
+How react work behind this / What is the algorithm ?
+Algorithm : Reconciliation alogrithm, this is also known as React fiber.
+
+First restContainer contains 7 rest cards once click to to rated button it filer by top rated resturants and now only who have rating more then 4 only shows.
+
+this works automatically when we use react hooks.
+
+This is done by virtual dom.
+This is find by diff algorithm
+
+React create vairtual dom behind the seen and if it found diffrence between both the doms then it will update the dom with latest one and remove the previous dom from browser.
+
+This algorithm introduced in react16
+
+after react 16 this algorithm called as react fiber
+
+Why React is faster
+because it is doing effiecient DOM minupulation using reconsiliation or react fiber or diff algorithm of virtual dom comparision.
