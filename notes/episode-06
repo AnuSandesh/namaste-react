@@ -1,0 +1,57 @@
+useEffect
+
+it acccepts two arguments
+1 -> callback function
+2 -> dependecny
+
+use effect calls when once the page is loaded and then it will invoke.
+
+
+we have introduced new funcionality that is search the tabs
+
+We learn how we call swiggy apis using fetch to grab the data.
+Removed all the dummy data.
+
+till page is loading we are showing to user a shimmer page instead of loading circle.
+
+once page is loaded then we make a api call to fetch the data and render it into the ui.
+
+we have used async await here to fetch the data.
+
+Fetching data from swiggy api blocked by browser because of cors policy.
+to avoid this we have added one extenstion in browser that allows to fetch the data.
+
+shimmer : Shimmer is a fake page that we show to user.
+This will have a better user experience.
+
+Flow
+Site load -> Shimmer show -> Render -> Request API -> get Data -> render original data
+
+What is conditional rendering
+when any data is loaded on any condition then it is called as conditional rendering.
+
+Why do we need useState
+for example : to maintaing login logout button for website
+when login button change to logout
+when logout button change to login
+
+It will render whole component.
+And the reconsilation algorithm check what changed and what to render.
+It will render whole componentto re-render if the value is updated
+
+In the code if you see we have used const variable.
+If value is changed then  JS is not allowing to change const variable. then how it is changed.
+because it is calling a function and again render whole component.
+
+
+
+Why react is faster
+React fiber's new reconsilation algorithm is responsible  for faster rendering.
+whenever it is found the difference between dom then it will re-render updated it with newer value.
+
+
+
+login -> logout button
+search-> search funcionality
+useEffect
+useState
